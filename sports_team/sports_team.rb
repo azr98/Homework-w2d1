@@ -39,12 +39,14 @@ attr_accessor :team_name, :players, :coach
 
   def change_points(result)
     if(result.downcase == "win")
-      points += 5
+      @points += 5
     else
-      points -= 5
+      @points -= 5
     end
   end
 
-
+  def points
+    @points
+  end
 
 end

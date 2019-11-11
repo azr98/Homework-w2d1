@@ -38,7 +38,6 @@ class SportsTeamTest < MiniTest::Test
   def test_player_in_roster
     g2 = SportsTeam.new('G2',['Wunder','Jankos','Caps','Perkz','Mikeyx'], 'Grabzz')
     test_player = g2.check_player('Caps')
-    p g2.players
     assert_equal('That player is in the roster',test_player )
   end
 
@@ -48,9 +47,15 @@ class SportsTeamTest < MiniTest::Test
     assert_equal("That player is not in the roster", test_player)
   end
 
-  def test_change_points
+  def test_change_points_win
     g2 = SportsTeam.new('G2',['Wunder','Jankos','Caps','Perkz','Mikeyx'], 'Grabzz')
     g2.change_points('win')
     assert_equal(5,g2.points)
+  end
+
+  def test_change_points_loss
+    g2 = SportsTeam.new('G2',['Wunder','Jankos','Caps','Perkz','Mikeyx'], 'Grabzz')
+    g2.change_points('loss')
+    assert_equal(-5,g2.points)
   end
 end
